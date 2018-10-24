@@ -1,0 +1,26 @@
+{
+    "name": "DynamicDB",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "SQLDBAdventureWorks",
+            "type": "LinkedServiceReference"
+        },
+        "parameters": {
+            "TableName": {
+                "type": "String",
+                "defaultValue": "[SalesLT].[Product]"
+            }
+        },
+        "folder": {
+            "name": "Demonstrations"
+        },
+        "type": "AzureSqlTable",
+        "typeProperties": {
+            "tableName": {
+                "value": "@dataset().TableName",
+                "type": "Expression"
+            }
+        }
+    },
+    "type": "Microsoft.DataFactory/factories/datasets"
+}

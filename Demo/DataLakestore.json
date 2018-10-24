@@ -1,0 +1,35 @@
+{
+    "name": "DataLakeStore",
+    "properties": {
+        "linkedServiceName": {
+            "referenceName": "SandboxADLS",
+            "type": "LinkedServiceReference"
+        },
+        "parameters": {
+            "FileName": {
+                "type": "String"
+            }
+        },
+        "folder": {
+            "name": "Demonstrations"
+        },
+        "type": "AzureDataLakeStoreFile",
+        "typeProperties": {
+            "format": {
+                "type": "TextFormat",
+                "columnDelimiter": ",",
+                "rowDelimiter": "",
+                "nullValue": "\\N",
+                "treatEmptyAsNull": true,
+                "skipLineCount": 0,
+                "firstRowAsHeader": true
+            },
+            "fileName": "",
+            "folderPath": {
+                "value": "RAW/Internal/AdventureWorks/@{dataset().FileName}",
+                "type": "Expression"
+            }
+        }
+    },
+    "type": "Microsoft.DataFactory/factories/datasets"
+}

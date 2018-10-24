@@ -1,0 +1,22 @@
+{
+    "name": "SandboxADLS",
+    "type": "Microsoft.DataFactory/factories/linkedservices",
+    "properties": {
+        "type": "AzureDataLakeStore",
+        "typeProperties": {
+            "dataLakeStoreUri": "https://[LAKENAME].azuredatalakestore.net/webhdfs/v1",
+            "servicePrincipalId": "APPLICATION_ID",
+            "servicePrincipalKey": {
+                "type": "AzureKeyVaultSecret",
+                "store": {
+                    "referenceName": "AzureKeyVault",
+                    "type": "LinkedServiceReference"
+                },
+                "secretName": "DataLakeSP"
+            },
+            "tenant": "AD_DIRECTORY_ID",
+            "subscriptionId": "SUBSCRIPTION_ID",
+            "resourceGroupName": "RESOURCE_GROUP"
+        }
+    }
+}
